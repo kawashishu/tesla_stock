@@ -1,0 +1,21 @@
+Nó đang tạo một đối tượng StandardScaler sc. Nó sẽ được sử dụng để chuẩn hóa các cột số.
+
+Nó chia dữ liệu thành các cột số và phân loại bằng hàm drop. Ở đây, 'giá_thanh toán','giá_cơ sở','số tiền chiết khấu','phần trăm chiết khấu','so sánh_giá_tuần' được coi là cột số và các cột khác được coi là cột phân loại.
+
+Sau đó, nó sẽ chuẩn hóa các cột số bằng cách sử dụng hàm fit_transform của trình chia tỷ lệ và chuyển đổi nó thành DataFrame.
+
+Nó nối các cột số được chia tỷ lệ và các cột phân loại để tạo một 'dữ liệu' khung dữ liệu mới
+
+Sau đó, nó sẽ chia dữ liệu thành dữ liệu đào tạo và thử nghiệm, trong đó dữ liệu đào tạo chứa các tuần từ 1 đến 135 và dữ liệu thử nghiệm chứa các tuần từ 136 đến 145
+
+Sau đó, nó đang tạo bộ tính năng và nhãn cho cả dữ liệu đào tạo và thử nghiệm bằng cách bỏ các cột 'id','num_orders','week' từ cả khung dữ liệu đào tạo và thử nghiệm.
+
+Nó đang áp dụng chuyển đổi nhật ký trên tính năng đích của tập dữ liệu thử nghiệm và đào tạo
+
+Nó đang tạo một đối tượng LinearRegression và phù hợp với các nhãn và tính năng dữ liệu đào tạo.
+
+Sau đó, nó sẽ đánh giá hiệu suất của mô hình bằng cách in điểm đào tạo và điểm kiểm tra, R-squared và Root Mean Squared Logarithmic Error (RMSLE).
+
+Nó cũng đưa ra dự đoán về dữ liệu thử nghiệm.
+
+Việc chuẩn hóa các cột số rất quan trọng đối với các mô hình hồi quy tuyến tính vì nó chia tỷ lệ các cột số thành cùng một phạm vi và đảm bảo rằng thuật toán tối ưu hóa hội tụ nhanh hơn, nếu không, các cột tỷ lệ lớn sẽ chiếm ưu thế trong việc tối ưu hóa. Ngoài ra, Chuyển đổi nhật ký có thể hữu ích khi tính năng mục tiêu có phân phối sai lệch, theo cách này, nó giúp chuyển đổi phân phối sai lệch thành phân phối bình thường, đây là giả định của mô hình hồi quy tuyến tính.
